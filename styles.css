@@ -1,0 +1,46 @@
+body{
+    display: grid;
+    grid-template-rows: 1fr 100px;
+    justify-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    margin-bottom: 40px;
+    align-self: end;
+    display: grid;
+    grid-template: repeat(3, 200px) / repeat(3, 200px);
+}
+
+.cell{
+    border: 1px solid black;
+}
+img{
+    height: 150px;
+    width: 150px;
+}
+
+.footer{
+    justify-self: stretch;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(53, 51, 51);
+    color: white;
+    padding: 0 12px;
+}
+
+.copyright{
+    font-size: 1.2rem;
+}
+
+.attribution a{
+    font-size: 0.8rem;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
