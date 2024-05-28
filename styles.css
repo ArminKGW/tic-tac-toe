@@ -25,10 +25,15 @@ body{
 .container{
     width: 100%;
     display: grid;
-    
+    grid-template: 1fr / 300px 1fr 300px;
+}
+
+.rules{
+    grid-column: 1 / 2;
 }
 
 .game-board{
+    grid-column: 2 / 3;
     justify-self: center;
     align-self: center;
     display: grid;
