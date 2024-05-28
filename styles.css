@@ -1,15 +1,36 @@
+@font-face{
+    font-family: "Dosis";
+    src: url(fonts/dosis.medium.ttf);
+}
+
 body{
     display: grid;
-    grid-template-rows: 1fr 100px;
+    grid-template-rows: 100px 1fr 100px;
     justify-items: center;
     height: 100vh;
     margin: 0;
     padding: 0;
 }
 
+.header{
+    font-family: "Dosis", sans-serif;
+    width: 100%;
+    background-color: rgb(202, 122, 10);
+    color: rgb(53, 51, 51);
+    font-size: 2rem;
+    display: grid;
+    place-items: center;
+}
+
 .container{
-    margin-bottom: 40px;
-    align-self: end;
+    width: 100%;
+    display: grid;
+    
+}
+
+.game-board{
+    justify-self: center;
+    align-self: center;
     display: grid;
     grid-template: repeat(3, 200px) / repeat(3, 200px);
 }
