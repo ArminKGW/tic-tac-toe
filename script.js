@@ -13,9 +13,13 @@ const gameBoard = (function(){
 
 const gameFlow = (function (){
     let moveNumber = 0, isFinished = false;
+    const resetBtn = document.querySelector(".result-reset button");
+    const result = document.querySelector(".result");
+    resetBtn.textContent = "Restart Game";
     const getMoveNumber = () => moveNumber;
     const incrementMoveNumber = () => moveNumber++;
-    return{getMoveNumber, incrementMoveNumber, isFinished};
+    const resetMoveNumber = () => moveNumber = 0;
+    return{getMoveNumber, incrementMoveNumber, resetMoveNumber, isFinished, resetBtn, result};
 })();
 
 function updateBoard(row, column){
@@ -63,7 +67,6 @@ function updateDOM(){
             if(cell.children.length !== 0){
                 return;
             }
-            console.log(gameFlow.isFinished);
             gameFlow.incrementMoveNumber();
             const imgElement = document.createElement("img");
             if(gameFlow.getMoveNumber() % 2 == 1){
@@ -127,15 +130,18 @@ function checkDiagonal(){
 
 function showResult(winner){
     gameFlow.isFinished = true;
+    gameFlow.resetBtn.textContent = "Play Again?";
     if(winner === 'O'){
-        console.log("The winner is Player 1!");
+        gameFlow.result.textContent = "The winner is player1!"
     }
     else if(winner === 'X'){
-        console.log("The winner is Player 2!");
+        gameFlow.result.textContent = "The winner is player2!";
     }
     else if(winner === "none"){
-        console.log("Draw!");
+        gameFlow.result.textContent = "Draw!";
     }
+
+    
 }
 
 function resetBoard(){
@@ -144,8 +150,29 @@ function resetBoard(){
             gameBoard.board[i][j] = null;
         }
     }
+    gameFlow.resetMoveNumber();
+}
+
+function resetDisplay(){
+    gameDisplay.cells.forEach((cell) => {
+        if(cell.childElementCount !== 0){
+            const removeImg = document.querySelector("img");
+            removeImg.remove();
+        }
+    });
+    gameFlow.resetBtn.textContent = "Restart Game";
+    gameFlow.result.textContent = "";
+}
+
+function resetButton(){
+    gameFlow.resetBtn.addEventListener("click", () => {
+        gameFlow.isFinished = false
+        resetBoard();
+        resetDisplay();
+    });
 }
 
 updateDOM();
+resetButton();
 
 
