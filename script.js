@@ -13,9 +13,8 @@ const gameBoard = (function(){
 
 const gameFlow = (function (){
     let moveNumber = 0, isFinished = false;
-    const resetBtn = document.querySelector(".result-reset button");
+    const resetBtn = document.querySelector(".reset button");
     const result = document.querySelector(".result");
-    resetBtn.textContent = "Restart Game";
     const getMoveNumber = () => moveNumber;
     const incrementMoveNumber = () => moveNumber++;
     const resetMoveNumber = () => moveNumber = 0;
@@ -130,7 +129,6 @@ function checkDiagonal(){
 
 function showResult(winner){
     gameFlow.isFinished = true;
-    gameFlow.resetBtn.textContent = "Play Again?";
     if(winner === 'O'){
         gameFlow.result.textContent = "The winner is player1!"
     }
@@ -138,7 +136,7 @@ function showResult(winner){
         gameFlow.result.textContent = "The winner is player2!";
     }
     else if(winner === "none"){
-        gameFlow.result.textContent = "Draw!";
+        gameFlow.result.textContent = "It is a tie!";
     }
 
     
@@ -160,7 +158,6 @@ function resetDisplay(){
             removeImg.remove();
         }
     });
-    gameFlow.resetBtn.textContent = "Restart Game";
     gameFlow.result.textContent = "";
 }
 
