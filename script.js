@@ -166,7 +166,7 @@ function resetDisplay(){
 
 function resetButton(){
     gameFlow.resetBtn.addEventListener("click", () => {
-        gameFlow.isFinished = false
+        gameFlow.isFinished = false;
         resetBoard();
         resetDisplay();
     });

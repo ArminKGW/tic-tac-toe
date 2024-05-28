@@ -13,9 +13,9 @@ body{
 }
 
 .header{
-    font-family: "Dosis", sans-serif;
+    font-family: "New Times Roman", sans-serif;
     width: 100%;
-    background-color: rgb(202, 122, 10);
+    background-color: rgb(121, 21, 16);
     color: rgb(53, 51, 51);
     font-size: 2rem;
     display: grid;
@@ -60,12 +60,21 @@ img{
     padding: 0 12px;
 }
 
+.attribution{
+    justify-self: start;
+    display: grid;
+}
+
 .copyright{
     font-size: 1.2rem;
 }
 
 .attribution a{
     font-size: 0.8rem;
+}
+
+.placeholder{
+    width: 201.141px;
 }
 
 a{
